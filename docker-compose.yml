@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  angular:
+    build: my-dream-app
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./my-dream-app/:/usr/src/app
+
+  express:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    links:
+      - database
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"

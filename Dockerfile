@@ -1,18 +1,26 @@
-FROM node:10 AS ui-build
+# Start from the base image
+FROM node:10
+# set the work directory
 WORKDIR /usr/src/app
-COPY my-dream-app/ ./my-dream-app/
-RUN cd my-dream-app && npm install @angular/cli && npm install && npm run build
-
-FROM node:10 AS server-build
-WORKDIR /root/
-COPY --from=ui-build /usr/src/app/my-dream-app/dist ./my-dream-app/dist
+# Copy the file package.json from your host to your current location
 COPY package*.json ./
-RUN npm install
+# RUN npm install command for node js dependencies inside your image filesystem
+RUN npm install 
+# Bundle app source
 COPY index.js .
-
+# Inform Docker that the container is listening on the specified port at runtime.
 EXPOSE 4000
-
+# Run the specified command within the container.
 ENTRYPOINT ["node", "./index.js"]
+
+
+
+
+
+
+
+
+
 
 
 
