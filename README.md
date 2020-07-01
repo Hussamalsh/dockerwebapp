@@ -9,9 +9,9 @@ Run the command below to install docker-compose.
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 
+``` json
 "MarketSpecifiers": 
 [
-     ...
      {
         "MarketSituationIndexType": 8,
         "Value": "3"
@@ -20,6 +20,5 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-
        "MarketSituationIndexType": 9,
        "Value": "4"
      }
-    ...
 ]
 ```
