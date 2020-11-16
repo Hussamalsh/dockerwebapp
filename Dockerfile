@@ -26,6 +26,22 @@ ENTRYPOINT ["node", "./index.js"]
 
 
 
+#FROM node:10 AS ui-build
+#WORKDIR /usr/src/app
+#COPY my-dream-app/ ./my-dream-app/
+#RUN cd my-dream-app && npm install @angular/cli && npm install && npm run build
+#FROM node:10 AS server-build
+#WORKDIR /root/
+#COPY --from=ui-build /usr/src/app/my-dream-app/dist ./my-dream-app/dist
+#COPY package*.json ./
+#RUN npm install
+#COPY index.js .
+#EXPOSE 4000
+#ENTRYPOINT ["node", "./index.js"]
+
+
+
+
 # Start from the base image
 #FROM node:10
 

@@ -15,7 +15,7 @@ const port = 4000
 
 app.get('/', (req, res) => {
    console.log('in the server')
-   res.sendDate("mongoose status = "+mongoose.STATES[mongoose.connection.readyState])
+   res.send("mongoose status = "+mongoose.STATES[mongoose.connection.readyState])
  });
  
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
